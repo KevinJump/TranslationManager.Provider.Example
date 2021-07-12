@@ -1,0 +1,85 @@
+﻿<div ng-controller="tmPickerDashboardController as vm">
+    <umb-box>
+        <umb-box-header title-key="translate_pickerTitle"
+                        description-key="translate_pickerDescription">
+        </umb-box-header>
+        <umb-box-content>
+            <localize key="translate_pickerIntro"></localize>
+        </umb-box-content>
+
+        <umb-box-content>
+
+            <div ng-if="vm.items.length == 0">
+                <div class="flex justify-center">
+                    <umb-button action="vm.pickContent()"
+                                label-key="translateActions_select"
+                                button-style="action"
+                                size="xl"
+                                type="button"></umb-button>
+                </div>
+            </div>
+
+            <div ng-if="vm.items.length > 0">
+
+                <div class="umb-table translate-table">
+                    <div class="umb-table-head">
+                        <div class="umb-table-row">
+                            <div class="umb-table-cell"></div>
+                            <div class="umb-table-cell umb-table__name">Name</div>
+                            <div class="umb-table-cell umb-table-cell--large">Path</div>
+                            <div class="umb-table-cell">Translation Set</div>
+                            <div class="umb-table-cell umb-table-cell--small justify-center">Include children</div>
+                            <div class="umb-table-cell umb-table-cell--small"></div>
+                        </div>
+                    </div>
+                    <div class="umb-table-body">
+                        <div ng-repeat="item in vm.items"
+                             class="umb-table-row">
+                            <div class="umb-table-cell"><i class="{{item.icon}}"></i></div>
+                            <div class="umb-table-cell umb-table__name">{{item.name}}</div>
+                            <div class="umb-table-cell umb-table-cell--large">{{item.tm_friendlyPath}}</div>
+                            <div class="umb-table-cell">{{item.tm_setName}}</div>
+                            <div class="umb-table-cell umb-table-cell--small justify-center">
+                                <umb-toggle checked="item.tm_includeChildren"
+                                            on-click="item.tm_includeChildren = !item.tm_includeChildren"
+                                            label-on="Include Children"
+                                            label-off="No children"></umb-toggle>
+                            </div>
+                            <div class="umb-table-cell umb-table-cell--small">
+                                <umb-button action="vm.remove(item)"
+                                            label="remove"
+                                            button-style="danger"
+                                            size="xs"
+                                            type="button"></umb-button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="flex justify-end mt3">
+                    <umb-button action="vm.pickContent()"
+                                label-key="translateActions_select"
+                                button-style="action"
+                                type="button"></umb-button>
+                </div>
+
+            </div>
+
+        </umb-box-content>
+    </umb-box>
+
+    <div class="alert alert-warning"
+         ng-if="!vm.valid && vm.items.length > 0">
+        <i class="icon icon-alert"></i>You cannot translate items from multiple translation sets in a single request. 
+        Remove one or more content nodes, and try again.
+    </div>
+
+    <div class="flex justify-center mr5" ng-if="vm.valid">
+        <umb-button action="vm.create()"
+                    label-key="translateActions_send"
+                    button-style="success"
+                    size="l"
+                    type="button"></umb-button>
+    </div>
+</div>

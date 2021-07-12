@@ -1,0 +1,43 @@
+﻿<div ng-controller="translateExampleCreateController as pvm">
+    <!--
+        called during the job creation process. 
+
+        gives your users the opertunity to tweak settings per job, 
+        or add addtional data to a job. 
+        
+        provider settings are loaded via vm.settings. 
+
+        the job is avalible via vm.job. 
+
+        and and provider properties should be stored in the 
+        vm.job.providerOptions object (in json). This is 
+        serialized as part of the job. 
+
+    -->
+    <umb-box>
+        <umb-box-header title="Example connector"></umb-box-header>
+        <umb-box-content>
+
+            <form class="form-horizontal">
+
+                <umb-control-group label="Description"
+                                   description="Short description of the job">
+                    <textarea class="umb-property-editor"
+                              name="description"
+                              ng-model="vm.job.providerOptions.description"
+                              rows="4"></textarea>
+                </umb-control-group>
+
+
+                <umb-control-group label="Some Box"
+                                   description="Box has to be checked for us to progress.">
+
+                    <umb-checkbox model="vm.job.providerOptions.checked"></umb-checkbox>
+
+                </umb-control-group>
+
+            </form>
+
+        </umb-box-content>
+    </umb-box>
+</div>

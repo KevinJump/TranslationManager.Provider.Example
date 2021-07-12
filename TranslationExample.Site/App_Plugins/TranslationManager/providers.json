@@ -1,0 +1,57 @@
+{
+  "providers": [
+    {
+      "name": "Xliff Connector",
+      "id": "something",
+      "installed": true,
+      "description": "Import and Export Translations in the Industry Standard Xliff 1.2 or 2.0 File Formats. Xliff is used the world over by Translators and works with all major Translation software Solutions (including SDL Trados).",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "LanguageWire",
+      "logo": "https://jumoo.co.uk/translate/img/logos/languagewire.png",
+      "id": "something",
+      "description": "The LanguageWire Content Platform has everything you need to create, translate, and publish content in any language. Grow your business with this easy-to-use translation management and global content creation system.",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "Translate plus",
+      "logo": "https://jumoo.co.uk/translate/img/logos/translateplus.png",
+      "id": "something",
+      "description": "As a global top 8 language services provider by revenue, we offer a full range of language services in over 200 languages. Complemented by our cutting-edge and AI-powered translation technology, i plus, our secure cloud-based TMS (translation management system).",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "Lionbridge",
+      "logo": "https://jumoo.co.uk/translate/img/logos/lionbridge.png",
+      "id": "something",
+      "description": "Linguistic experts and cultural translators. We build deep relationships with the biggest brands in the world, so they can build deeper relationships with their customers. Fluent in 350+ languages, and working from more than 5,000 cities Lionbridge combine human empathy and machine intelligence.",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "Globelink",
+      "logo": "https://jumoo.co.uk/translate/img/logos/gl-connect.png",
+      "description": "TransPerfect is the world's largest provider of language and technology solutions for global business. From offices in over 100 cities on six continents, TransPerfect offers a full range of services in 170+ languages to clients worldwide. More than 5,000 global organizations employ TransPerfect's GlobalLink Product Suite to simplify management of multilingual content.",
+      "id": "something",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "Microsoft Translator Api",
+      "id": "something",
+      "description": "Microsoft Translator Text API, part of the Microsoft Cognitive Services API collection, Supports multiple languages that reach more than 95% of world's gross domestic product(GDP).",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "Google Translator Api",
+      "id": "something",
+      "description": "The Google Cloud Translation API provides a simple programmatic interface for translating an arbitrary string into any supported language using state-of-the-art Neural Machine Translation.",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    },
+    {
+      "name": "Passthrough Connector",
+      "id": "something",
+      "description": "Simple Connector that will pass text through from one site to another, this is good if you have sites with the same base language and you want to maintain them as part of your wider translation flow",
+      "url": "https://jumoo.co.uk/translate/providers/"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+﻿<div ng-controller="translateProviderViewController as vm">
+    <umb-editor-view>
+        <umb-editor-header name="'Translation Connectors'"
+                           name-locked="true"
+                           hide-description="true"
+                           hide-icon="true"
+                           hide-alias="true"></umb-editor-header>
+        <umb-editor-container>
+            <umb-box>
+                <umb-box-header title="Translation Connectors">
+                </umb-box-header>
+                <umb-box-content>
+                    <p>
+                        Translation Connectors allow you to connect your Umbraco site directly to a Translation Service
+                    </p>
+                    <p>
+                        For more info see : <a href="https://jumoo.co.uk/translate/providers/" target="_blank">https://jumoo.co.uk/translate/providers/</a>
+                    </p>
+                </umb-box-content>
+            </umb-box>
+            <div class="flex flex-wrap" ng-if="vm.providers.length > 0">
+                <div ng-repeat="provider in vm.providers" class="tm-provider-box"
+                     ng-class="{'-installed' : provider.installed}">
+                    <umb-box class="mr2">
+                        <umb-box-content>
+                            <div class="provider-name">
+                                <div>
+                                    <img ng-src="{{provider.logo}}" class="provider-logo" alt="{{provider.name}}"
+                                         ng-if="provider.logo" />
+                                    <h3 ng-if="!provider.logo">{{provider.name}}</h3>
+                                </div>
+                            </div>
+                            <div class="provider-description">
+                                {{provider.description}}
+                            </div>
+                            <div class="provider-link">
+                                <a ng-if="!provider.installed"
+                                   href="{{provider.url}}" target="_blank" class="btn btn-link">View</a>
+
+                                <div ng-if="provider.installed">Installed</div>
+                            </div>
+                        </umb-box-content>
+                    </umb-box>
+                </div>
+            </div>
+
+        </umb-editor-container>
+    </umb-editor-view>
+</div>

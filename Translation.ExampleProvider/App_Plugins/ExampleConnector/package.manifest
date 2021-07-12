@@ -1,0 +1,7 @@
+{
+  "javascript": [
+    "~/App_Plugins/ExampleConnector/pendingController.js",
+    "~/App_Plugins/ExampleConnector/submittedController.js"
+
+  ]
+}

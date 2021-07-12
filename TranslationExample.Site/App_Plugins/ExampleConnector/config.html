@@ -1,0 +1,41 @@
+<div>
+    <!-- 
+        Example config page. 
+        the underling transaltion manager controller will load the settings 
+        for the provider into vm.settings object. 
+
+        you don't need to worry about saving (as that is also done by the parent controller)
+        so most of the time you don't need a angular controller here unless you are 
+        going to get settings from an api or something.        
+    -->
+    <umb-box>
+        <umb-box-header title="Example translation connector"
+                        description="Example of a config page for a connector"></umb-box-header>
+        <umb-box-content>
+
+            <div class="form-horizontal">
+
+                <umb-control-group label="Format" description="Format for extracted files">
+                    <select class="umb-dropdown umb-property-editor"
+                            name="provider"
+                            ng-model="vm.settings.format">
+                        <option value="xliff12">Xliff 1.2</option>
+                        <option value="xliff20">Xliff 2.0</option>
+                    </select>
+                </umb-control-group>
+
+                <umb-control-group label="Split Html" description="Split the HTML into chunks within the Xliff File">
+                    <umb-toggle checked="vm.settings.split"
+                                on-click="vm.settings.split = !vm.settings.split">
+                    </umb-toggle>
+                </umb-control-group>
+
+            </div>
+        </umb-box-content>
+
+
+        <umb-box-content>
+            <pre>{{vm.settings}}</pre>
+        </umb-box-content>
+    </umb-box>
+</div>

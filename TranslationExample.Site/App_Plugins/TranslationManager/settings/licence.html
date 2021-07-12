@@ -1,0 +1,140 @@
+﻿<div class="tm-licence-page">
+    <umb-box>
+        <umb-box-header title="Licence"></umb-box-header>
+        <umb-box-content>
+            <p>
+                A Licence allows you to create multiple sets, and multiple translation languages. Unlicenced Tranlsation Manager is limited to
+                one set with one source and one target language.
+            </p>
+            <p ng-if="model.settings.Licence.State != 'Licenced'">
+                <small>
+                    Developers : If you are running from localhost then everything will work, but to use
+                    on a live site you will need a licence to translate more than
+                    one language.
+                </small>
+            </p>
+            <p ng-if="model.settings.Licence.State != 'Licenced'">
+                <a href="https://jumoo.co.uk/translate/purchase/" target="_blank" class="btn btn-primary">purchase a licence</a>
+            </p>
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box>
+        <umb-box-header title="Licence details"></umb-box-header>
+        <umb-box-content>
+            <umb-control-group label="Licenced domains"
+                               description="domains licenced to">
+                <input type="text" class="umb-textstring umb-property-editor"
+                       ng-model="model.licenceDetails.domains" />
+            </umb-control-group>
+
+            <umb-control-group label="Licence Key"
+                               description="Key for licence">
+                <input type="text" class="umb-textstring umb-property-editor"
+                       ng-model="model.licenceDetails.key" />
+            </umb-control-group>
+
+            <div ng-if="model.settings.Licence.State == 'Licenced' && model.settings.Licence.Expires">
+                This licence has an expiry date : {{model.settings.Licence.ExpiryDate | date: 'fullDate'}}
+                <span ng-if="model.settings.Licence.Remaining >= 0 && model.settings.Licence.Remaining < 50" class="color-orange">
+                    <i class="icon icon-alert"></i> It will expire in {{model.settings.Licence.Remaining}} days
+                    <umb-button action="model.checkLicence()"
+                                button-style="action"
+                                type="button"
+                                label="Check"
+                                state="model.checking"></umb-button>
+                </span>
+
+            </div>
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box ng-if="model.settings.Licence.State == 'Licenced'">
+        <umb-box-content>
+            <i class="icon icon-check color-green"></i> Licence info is valid
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box ng-if="model.settings.Licence.State == 'Expired'">
+        <umb-box-content>
+            <i class="icon icon-alert color-orange"></i> Licence has expired.
+            <umb-button action="model.checkLicence()"
+                        button-style="action"
+                        type="button"
+                        label="Check for update"
+                        state="model.checking"></umb-button>
+
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box ng-show="model.settings.Licence.State == 'Invalid'"
+             class="tm-box-alert-warning">
+        <umb-box-content>
+            <i class="icon icon-alert"></i>
+            Your licence information is not valid.
+        </umb-box-content>
+    </umb-box>
+
+    <!-- local -->
+    <div ng-if="model.settings.Licence.IsLocal">
+
+        <!-- not valid (will work because local -->
+        <umb-box ng-show="!model.settings.Licence.Valid"
+                 class="tm-box-alert-info">
+            <umb-box-content>
+                <p>
+                    Your instance of Translation Manager is running in localhost mode, with no restrictions.
+                </p>
+                <p>
+                    If you move to a domain without a licence you will be limited to one set, and one target language
+                </p>
+            </umb-box-content>
+        </umb-box>
+
+        <!-- valid -->
+        <umb-box ng-show="model.settings.Licence.Valid">
+            <umb-box-content>
+                <i class="icon icon-laptop color-blue"></i> Running against localhost.
+            </umb-box-content>
+        </umb-box>
+    </div>
+
+    <!-- not local -->
+    <div ng-if="!model.settings.Licence.IsLocal">
+
+        <!-- valid -->
+        <umb-box ng-if="model.settings.Licence.Valid">
+            <umb-box-content>
+                <i class="icon icon-check color-green"></i> Translation manager will function on this host.
+            </umb-box-content>
+        </umb-box>
+
+        <!-- wrong domain -->
+        <umb-box ng-show="model.settings.Licence.State == 'DomainInvalid'" class="tm-box-alert-warning">
+            <umb-box-header title="You licence is valid, but it is not for the current domain"></umb-box-header>
+            <umb-box-content>
+                <p>
+                    Your licence will work for the specified domain and subdomains
+                    <em>(e.g. example.com, other.example.com)</em> but it will not work for
+                    other domains with the same ending <em>(e.g. myexample.com)</em>
+                </p>
+                <p>
+                    <strong>
+                        This might be because the the underling domain the server is responding to requests on is not listed
+                        in the licenced domains.
+                    </strong>
+                </p>
+                <p>
+                    This licence check was performed against
+                    <strong>[{{model.settings.Licence.CheckedHost}}]</strong>
+                    If this host is not listed in your domains then <a href="info@jumoo.co.uk" target="_blank" class="link">contact us</a>
+                    and if this is part of the same project we should be able to add the domain to the licence for you.
+                </p>
+                <p>
+                    If you need translations for another site/project then you will need to
+                    <a href="http://jumoo.co.uk/tp/v8/licence/" class="link">purchase a new domain licence</a> for that site.
+                </p>
+            </umb-box-content>
+        </umb-box>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div ng-controller="translateExampleSubmittedController as pvm">
+    <umb-box>
+        <umb-box-header title="Example Connector">
+        </umb-box-header>
+        <umb-box-content>
+
+            <div>
+                <strong>Description : </strong>{{pvm.properties.description}}
+            </div>
+
+            <div>
+                <p>This connector will look for an updated file at <code>{{pvm.properties.fileName}}</code>.</p>
+                <p>When this file contains translated content, the job will progress</p>
+        </umb-box-content>
+    </umb-box>
+    
+</div>

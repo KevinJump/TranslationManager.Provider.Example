@@ -1,0 +1,66 @@
+﻿<div ng-controller="translateXliffPendingController as pvm">
+    <umb-box>
+        <umb-box-header title="XLIFF options"
+                        description="Save job in XLIFF Format"></umb-box-header>
+        <umb-box-content>
+            <div class="translate-toggle-box flex justify-between">
+                <div class="toggle-label">
+                    <div class="toggle-name">Format</div>
+                </div>
+                <div>
+                    {{vm.settings.format}}
+                </div>
+            </div>
+
+            <div class="translate-toggle-box flex justify-between">
+                <div class="toggle-label">
+                    <div class="toggle-name">Location</div>
+                </div>
+                <div>
+                    {{vm.settings.folder}}
+                </div>
+            </div>
+            <div class="translate-toggle-box flex justify-between">
+                <div class="toggle-label">
+                    <div class="toggle-name">File Extension</div>
+                </div>
+                <div>.{{vm.settings.extension}}</div>
+            </div>
+
+            <div class="translate-toggle-box flex justify-between">
+                <div class="toggle-label">
+                    <div class="toggle-name">Splitting</div>
+                </div>
+                <div class="text-muted muted">
+                    <em ng-if="vm.settings.split">
+                        Html will be split in translation
+                    </em>
+                    <em ng-if="!vm.settings.split">
+                        Html will not be split
+                    </em>
+                </div>
+            </div>
+
+
+            <div class="translate-toggle-box flex justify-between">
+                <div class="toggle-label">
+                    <div class="toggle-name">Blank Values</div>
+                </div>
+                <div class="text-muted muted">
+                    <em ng-if="vm.settings.removeBlanks">Blank values will not be included in file</em>
+                    <em ng-if="!vm.settings.removeBlanks">Blank values included in file</em>
+                </div>
+            </div>
+
+            <div class="translate-toggle-box flex justify-between" ng-if="vm.settings.includeTarget">
+                <div class="toggle-label">
+                    <div class="toggle-name">Target Values</div>
+                </div>
+                <div class="text-muted muted">
+                    <em>Existing target values will be included in translation</em>
+                </div>
+            </div>
+
+        </umb-box-content>
+    </umb-box>
+</div>
